@@ -42,7 +42,7 @@ Once inside the cloned repo, go to the `Docker` folder and run:
 
 This will create the image codeanalizer_image based on the [Dockerfile](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/Dockerfile)
 
-Right after, once we have our image created, we need to build the container, according to our [docker-compose.yml](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/Docker/docker-compose.yml):
+Right after, once we have our image created, we need to build the container, according to our [docker-compose.yml](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/docker-compose.yml):
 
 ###### `docker-compose -p codeanalizer_project up -d`
 ####
