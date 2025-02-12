@@ -1,8 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
+
+    const trustedOrigin = "https://my-app.com";
+
+    window.addEventListener("message", (event) => {
+        if (event.origin !== trustedOrigin) {
+            console.error("Untrusted origin:", event.origin);
+            return;
+        }
+    });
+
     const form = document.getElementById("repository-form");
     const resultDiv = document.getElementById('sast-result');
 
     form.addEventListener("submit", function (event) {
+
+        window.addEventListener("message", (event) => {
+            if (event.origin !== trustedOrigin) {
+                console.error("Untrusted origin:", event.origin);
+                return;
+            }
+        });
+
         event.preventDefault();
         resultDiv.classList.remove("result_container");
         resultDiv.innerHTML = ""; // Clear previous results
@@ -26,7 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             .then(html => {
                 hideSpinner();
                 resultDiv.classList.add("result_container");
-                resultDiv.innerHTML = html; 
+                resultDiv.innerHTML = html;
             })
             .catch(error => {
                 hideSpinner();

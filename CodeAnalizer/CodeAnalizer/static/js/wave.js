@@ -1,4 +1,14 @@
 document.addEventListener("DOMContentLoaded", (event) => {
+
+    const trustedOrigin = "https://my-app.com";
+
+    window.addEventListener("message", (event) => {
+        if (event.origin !== trustedOrigin) {
+            console.error("Untrusted origin:", event.origin);
+            return;
+        }
+    });
+
     let isMobile = window.innerWidth < 768;
     let svg = document.getElementById("waveSvg");
 

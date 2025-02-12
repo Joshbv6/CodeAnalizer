@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'CodeAnalizer.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'codeanalizer_db',
-        'USER': 'codeanalizer',
-        'PASSWORD': 'codeanalizer',
-        'HOST': 'codeanalizer_db',
-        'PORT': '5432'
+        'NAME': None,
+        'USER': None,
+        'PASSWORD': None,
+        'HOST': None,
+        'PORT': None
     }
 }
 
