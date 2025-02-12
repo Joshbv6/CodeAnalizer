@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script src="{% static 'js/wave.js' %}"></script>
+  {% block head_content %}
+  <title>Repository</title>
+  {% endblock %}
+  
+</head>
+
+<body>
+  <svg id="waveSvg" xmlns="http://www.w3.org/2000/svg">
+    <path id="wave1" fill="#9AA6B2" opacity="0.5"></path>
+    <path id="wave2" fill="#9AA6B2" opacity="1"></path>
+    <path id="wave3" fill="#9AA6B2" opacity="0.15"></path>
+  </svg>
+  <h1 class="title">SAST Analysis</h1>
+</body>
+{% block body_content %}
+{% endblock %}
+
+</html>

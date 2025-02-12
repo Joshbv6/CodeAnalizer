@@ -1,0 +1,56 @@
+
+{% load static %}
+    {% if results %}
+        <section class="center">
+            <label class="monospace mbottom">
+                <b class="red">{{ results|length }}</b> Vulnerabilities found !
+            </label>
+        </section>
+        {% for item in results %} 
+        <div class="left results">
+            <a href="{{ item.url }}" target="_blank" class="no_decoration">
+                <h2>
+                    {{ item.file }}
+                    <span class="material-symbols-outlined">
+                    open_in_new
+                    </span>
+                </h2>
+            </a>
+            <b>Line: </b>{{ item.line }}
+            <section>
+                <b>Severity: </b>
+                <label class="red">
+                    {% if item.severity is not none %}
+                        {{ item.severity }}
+                    {% elif item.impact is not none %}
+                        {{ item.impact }}
+                    {% endif %}
+                </label>
+            </section>
+            <p class="word-wrap">
+                <b>Error: </b>{{ item.message }}
+            </p>
+            <p>
+                <section class="code code_container">
+                    <code>
+                        <label class="code_line">
+                            {{ item.line }}
+                        </label>
+                        
+                        {{ item.code }}
+                    </code>
+                </section>
+            </p>
+        </div>
+        {% endfor %}
+    {% elif error %}
+        <section class="error_message results monospace">
+            <b>{{ error }}</b>
+            <img src="{% static 'images/server-down.png' %}">
+        </section>
+    {% else %}
+        <section class="approved_message results monospace">
+            <b>No errors found on this repository!</b>
+            <img src="{% static 'images/checked.png' %}">
+        </section>
+    {% endif %}

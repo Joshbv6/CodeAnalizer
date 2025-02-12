@@ -1,0 +1,63 @@
+.shark {
+    width: 50px;
+    aspect-ratio: 1;
+    box-shadow: 0 0 0 0px #fff inset;
+    border-radius: 50%;
+    position: relative;
+    animation: l6 6s linear infinite;
+    z-index: 99;
+}
+
+.loader {
+    width: 70px;
+    aspect-ratio: 1;
+    background-image: url('../images/internet.png');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    position: absolute;
+    animation: l3 10s linear infinite;
+    z-index: 999;
+}
+
+.shark:after {
+    content: "";
+    position: absolute;
+    top: 30%;
+    right: 100%;
+    opacity: 0.4;
+    box-shadow: inherit;
+    background-image: url('../images/shark.png');
+    background-size: cover;
+    background-position: center;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    transform: rotate(80deg);
+    box-shadow: 0 0 0 0px #fff !important;
+}
+
+@keyframes l6 {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes l3 {
+    to {
+        transform: rotate(-360deg);
+    }
+}
+
+#loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
