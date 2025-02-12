@@ -49,7 +49,7 @@ Right after, once we have our image created, we need to build the container, acc
 
 Once we've run both commands, the app is ready to go.
 
-We need to start the container and that's it. We've set the entrypoint on the [Dockerfile](https://github.com/Joshbv6/CodeAnalizer/blob/main/Docker/Dockerfile) to automatically start the Django server as soon as the container starts.
+We need to start the container and that's it. We've set the entrypoint on the [Dockerfile](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/Dockerfile) to automatically start the Django server as soon as the container starts.
 
 So you can start the container and go to [http://localhost:8000](http://localhost:8000)
 
