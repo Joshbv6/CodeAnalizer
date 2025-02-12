@@ -33,6 +33,8 @@ class Repository(Abstract):
         return match.group(1).split('?')[0] if match else None
 
     def clean_url(self, url):
+        if not url:
+            return None
         base_url = url.split('?')[0]
 
         base_url = base_url.replace("/-/", "/")
