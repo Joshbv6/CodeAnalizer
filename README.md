@@ -1,84 +1,117 @@
-# What's this app about ?
+# 🔍 About the Project
 
-This project has been created for running static analysis (SAST / SCA) or dynamic (DAST).
+CodeAnalyzer is a **Django-based** application designed to perform **Static Application Security Testing (SAST)** on public **GitHub** and **GitLab** repositories. Future updates will introduce additional security testing methodologies, such as **Software Composition Analysis (SCA)** and **Dynamic Application Security Testing (DAST)**, along with enhanced security scoring and reporting features.
 
- *-- Has not been publicly deployed yet*
+*🚀 This project has not been publicly deployed yet.*
 
-## How to install
+# ⚙️ Installation Guide
 
-**(Note that by default it will create the app using ports _8000_ for _Django server_, _5678_ for _debugpy_ and _5432_ for _PostgreSQL_)**.
-######
-**(And we have a volume set on `C:/Projects/CodeAnalizer:/opt`)**.
-######
-**You can change that on the [docker-compose.yml](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/docker-compose.yml)**
-**and on [Dockerfile](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/Dockerfile)**.
-####
+### Default Configuration:
 
-Below we can choose installing the app automatically by running some scripts for **_Windows_** (*install.bat*), **_Linux_** (*install.sh*) or **_manually_**.
+- **Django Server:** `Port 8000`
 
- 
-### **Windows OS**
+- **Debugpy:** `Port 5678`
 
-For installing this app on Windows, clone this repository and simply double-click on *[install.bat](https://github.com/Joshbv6/CodeAnalizer/blob/master/install.bat)*
+- **PostgreSQL:** `Port 5432`
 
-This will run the docker commands to install the Django App and open it up in the browser.
+- **Volume Mapping:** `C:/Projects/CodeAnalizer:/opt (modifiable in docker-compose.yml)`
 
-### **Linux OS**
+## 🖥️ Windows Installation
 
-For installing this app on Linux, clone this repository and simply run the *[install.sh](https://github.com/Joshbv6/CodeAnalizer/blob/master/install.sh)*
-
-This will run the docker commands to install the Django App and open it up in the browser.
-
-### **Manual Installation**
-
-For installing this app manually, clone this repository:
+Clone the repository:
 
 ###### `git clone https://github.com/Joshbv6/CodeAnalizer.git`
 ####
-Once inside the cloned repo, go to the `Docker` folder and run:
+
+Run the installation script by double-clicking *install.bat*.
+
+This will execute Docker commands to set up and launch the application.
+
+## 🐧 Linux Installation
+
+Clone the repository:
+
+###### `git clone https://github.com/Joshbv6/CodeAnalizer.git`
+####
+
+Run the installation script:
+
+###### `chmod +x install.sh && ./install.sh`
+####
+
+This will execute Docker commands to set up and launch the application.
+
+## 🛠️ Manual Installation
+
+For those preferring manual setup:
+
+Clone the repository:
+
+###### `git clone https://github.com/Joshbv6/CodeAnalizer.git`
+####
+
+Navigate to the Docker folder:
+
+###### `cd CodeAnalizer/Docker`
+####
+
+Build the Docker image:
 
 ###### `docker build -t codeanalizer_image .`
 ####
 
-This will create the image codeanalizer_image based on the [Dockerfile](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/Dockerfile)
-
-Right after, once we have our image created, we need to build the container, according to our [docker-compose.yml](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/docker-compose.yml):
+Run the container using Docker Compose:
 
 ###### `docker-compose -p codeanalizer_project up -d`
 ####
 
-Once we've run both commands, the app is ready to go.
+Once the container is running, open your browser and go to: [http://localhost:8000](http://localhost:8000).
 
-We need to start the container and that's it. We've set the entrypoint on the [Dockerfile](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/Dockerfile) to automatically start the Django server as soon as the container starts.
+## 🚀 How It Works
 
-So you can start the container and go to [http://localhost:8000](http://localhost:8000)
+Currently, the application supports **Static Application Security Testing (SAST)**:
 
-## How does the app work ?
+Users submit a URL (GitHub/GitLab public repositories only).
 
-For the moment, in this app we've only set one screen and one type of analysis ( SAST )
+The system runs a SAST scan and displays the results.
 
-You will see on [http://localhost:8000](http://localhost:8000) one simple page with a text input:
+Future updates will expand this functionality.
 
-We can freely submit a URL (the app only supports `github` or `gitlab` for the moment) of a public repository.
+## 🔮 Roadmap & Planned Features
 
-This will run `Static Application Security Testing (SAST)` analysis on this repository and display the results.
+### ✅ Planned Enhancements:
 
-### TODOs
+- Software Composition Analysis (SCA)
 
-Since we have this simply formulary for the moment, among the plans for the future we have:
-- *Add **Software Composition Analysis (SCA**)*
-- *Add **Dynamic Application Security Testing (DAST)***
-- *Add **Authentication / Authentification** system*
-- *Add the repositories into a **queue** so the user don't have to wait until the analysis finish, so you can come back later to check the results obtained or queue multiple repositories to analyze*
-- *Add Database connection to **store repositories** analyzed and results obtained*
-- *Add **download system** for downloading the results in different formats (json, xml...)*
-- *Create a **public API** so you can connect and run those analysis from your own system*
-- *Add **Bug Hunting** analysis ( ideally )*
-- *Add **Code Smells** analysis ( ideally )*
-- *Add **Penetration Testing** analysis for several vulnerability types using different payloads ( ideally )*
+- Dynamic Application Security Testing (DAST)
 
-While we have several planned functionalities for the future, we want to approach these features carefully. Some of these ideas, like Bug Hunting analysis, Code Smells analysis, and Penetration Testing analysis, are ideal additions, but we need to acknowledge that they may present unforeseen challenges as we move forward.
+- User authentication & account management
 
-It's important to note that, though we see their potential value, there may be instances where implementing these functionalities could introduce more complexities than solutions, or even lead to new issues that we hadn’t initially considered. So, while these features remain part of our roadmap, we may prioritize them differently or adjust our approach as we continue development and evaluate the technical feasibility and impact.
+- Queued analysis for better user experience (no waiting for results)
 
-Currently, the focus is on refining the existing features and ensuring that the app is stable. We will continue to self-assess and look for opportunities to enhance the platform in a sustainable way.
+- Database integration for storing past analysis results
+
+- Downloadable reports (JSON, XML, etc.)
+
+- Public API for external system integration
+
+###  🆕 Upcoming Features:
+
+- Security Scoring System
+
+- Assess repositories based on CVSS (Common Vulnerabilities Scoring System) and CVE (Common Vulnerabilities and Exposures).
+
+- Provide an intuitive score to evaluate repository security risks.
+
+- Bug Hunting & Code Smells Analysis (Tentative)
+
+- Penetration Testing (Tentative – requires feasibility evaluation)
+
+- Some of these features may present unforeseen technical challenges, and their implementation will be assessed for feasibility.
+
+
+## 📬 Contact
+
+For questions or feedback, feel free to reach out via GitHub issues.
+
+*🎯 Stay tuned for updates and security improvements! 🚀*
