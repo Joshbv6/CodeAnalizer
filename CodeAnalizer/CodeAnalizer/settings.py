@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-henggqhka*0$creg5@h_!d1p=o7@+-&6qjwdi_blm=hh)1ty0r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["localhost", "192.168.1.4", "192.168.1.4:8000"]
+ALLOWED_HOSTS = ["localhost", "192.168.1.4"]
 
 
 # Application definition
@@ -74,16 +74,7 @@ WSGI_APPLICATION = 'CodeAnalizer.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': None,
-        'USER': None,
-        'PASSWORD': None,
-        'HOST': None,
-        'PORT': None
-    }
-}
+DATABASES = {}
 
 
 # Password validation
