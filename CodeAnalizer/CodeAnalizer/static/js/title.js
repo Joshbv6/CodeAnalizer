@@ -7,7 +7,7 @@ function startTitleAnimation() {
         let dotsStr = ".".repeat(dots % 5);
         document.title = `Analyzing${dotsStr} 🔍`;
         dots++;
-    }, 300);
+    }, 500);
 }
 
 function stopTitleAnimation() {
@@ -27,7 +27,7 @@ document.addEventListener("visibilitychange", function () {
             return;
         }
     });
-    
+
     if (!document.hidden) {
         // User returns to the tab
         document.title = last_title;
