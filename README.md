@@ -10,7 +10,7 @@ This project has been created for running static analysis (SAST / SCA) or dynami
 ######
 **(And we have a volume set on `C:/Projects/CodeAnalizer:/opt`)**.
 ######
-**(You can change that on the [docker-compose.yml](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/docker-compose.yml)**
+**You can change that on the [docker-compose.yml](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/docker-compose.yml)**
 **and on [Dockerfile](https://github.com/Joshbv6/CodeAnalizer/blob/master/Docker/Dockerfile)**.
 ####
 
@@ -69,6 +69,7 @@ Since we have this simply formulary for the moment, among the plans for the futu
 - *Add **Software Composition Analysis (SCA**)*
 - *Add **Dynamic Application Security Testing (DAST)***
 - *Add **Authentication / Authentification** system*
+- *Add the repositories into a **queue** so the user don't have to wait until the analysis finish, so you can come back later to check the results obtained or queue multiple repositories to analyze*
 - *Add Database connection to **store repositories** analyzed and results obtained*
 - *Add **download system** for downloading the results in different formats (json, xml...)*
 - *Create a **public API** so you can connect and run those analysis from your own system*

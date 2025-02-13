@@ -22,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         event.preventDefault();
+        startTitleAnimation();
         resultDiv.classList.remove("result_container");
         resultDiv.innerHTML = ""; // Clear previous results
         showSpinner();
@@ -43,6 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
             })
             .then(html => {
                 hideSpinner();
+                stopTitleAnimation();
                 resultDiv.classList.add("result_container");
                 resultDiv.innerHTML = html;
             })
