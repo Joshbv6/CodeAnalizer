@@ -18,6 +18,14 @@ function stopTitleAnimation() {
     }
 }
 
+function errorTitleAnimation() {
+    clearInterval(titleAnimation);
+    document.title = "Error! ❌";
+    if (!document.hidden) {
+        document.title = last_title;
+    }
+}
+
 document.addEventListener("visibilitychange", function () {
     const trustedOrigin = "https://my-app.com";
 

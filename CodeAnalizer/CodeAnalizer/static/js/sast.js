@@ -51,6 +51,8 @@ document.addEventListener("DOMContentLoaded", function () {
             .catch(error => {
                 hideSpinner();
                 console.error('Error:', error);
+                errorTitleAnimation()
+                resultDiv.classList.add("result_container");
                 resultDiv.innerHTML = "<p>There was an error processing your request.</p>";
             });
     });

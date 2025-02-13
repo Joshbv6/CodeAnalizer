@@ -7,7 +7,7 @@ class SAST:
     @staticmethod
     def analyze(repository, branch_name, repo_path):
 
-        url = repository.url.replace(".git", "")
+        url = repository.url.rstrip(".git")
 
         try:
             semgrep = SAST.run_semgrep(repo_path)
